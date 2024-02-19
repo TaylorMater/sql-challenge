@@ -42,12 +42,6 @@ https://www.quickdatabasediagrams.com/blog
 Defining primary key–foreign key relationships - IBM Documentation
 https://www.ibm.com/docs/en/doc/3.9.1.0?topic=model-defining-primary-keyforeign-key-relationships
 
-9.3 Data Modeling
-file:///C:/Users/rttay/Documents/Education/UTA_Data_Bootcamp/ClassWork_and_Class_Repo/Riley_Work/09-SQL/3/9.3%20Data%20Modeling.pdf
-
-SQL_reference_guide.pdf
-file:///C:/Users/rttay/Documents/Education/UTA_Data_Bootcamp/ClassWork_and_Class_Repo/Riley_Work/09-SQL/Supplemental/SQL_reference_guide.pdf
-
 Why Do Relational Databases Use Primary Keys and Foreign Keys?
 https://learnsql.com/blog/why-use-primary-key-foreign-key/#:~:text=The%20primary%20key%20column(s)%20can%20be%20used%20(along,key%20column%20in%20another%20table.
 
