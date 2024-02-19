@@ -1,0 +1,24 @@
+## Questions and Notes
+
+
+The code I entered on https://app.quickdatabasediagrams.com/#/ to generate my diagram is in the next cell. I was struggling with the relationship syntax and I wasn't really sure if I needed to specify more/less. The default connection is 1M based on the references connection, but I don't think that applies very often here. Sure, dept number can be associated with different department managers or differnt employees. But if a one column primary key references another one column primary key, what do I do? That seems like a 1-1 connection. It's not even in the PGAdmin ERD tool. I understand that in these cases you would likely combine the table into one table. But we aren't changing the tables at all, so I'm just a bit confused. 
+
+
+-- See my questions with Ryan on 2024-02-19
+
+Some other notes - https://stackoverflow.com/questions/4848964/difference-between-text-and-varchar-character-varying
+
+seemed to imply that varchar(n) is not really giving you the performance benefit you might think it is? Assigning it the text type seems fine? But the assignment rubric is grading us for proper character assignment for our columns? What if I chose to use text instead of varchar? 
+
+
+Another note - I know the SERIAL is syntax sugar for a way to create an INT with a sequence. But I don't own this DB, and we are only asked to query, not to insert or modify the data in any way. As such I see no point in using SERIAL (I'm referring to emp_no for this assignment), but I suspect the grader will take points off because its the kind of scenario where you might expect SERIAL to be used. I want to mention this here so that I can reference it in the future if I get points off. 
+
+
+
+
+## TODO
+
+- Import tables
+- Write queries
+- Tutoring session for conventions/expectations
+- generate ERD/verify the ERD
