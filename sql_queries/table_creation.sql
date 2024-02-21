@@ -1,100 +1,75 @@
--- Drop if it exists
-DROP TABLE IF EXISTS departments CASCADE;
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
--- Create table
 
-CREATE TABLE departments (
-    dept_no 	VARCHAR(8) PRIMARY KEY,
-	dept_name 	TEXT
+CREATE TABLE "departments" (
+    "dept_no" CHAR(4)   NOT NULL,
+    "dept_name" VARCHAR(30)   NOT NULL,
+    CONSTRAINT "pk_departments" PRIMARY KEY (
+        "dept_no"
+     )
 );
 
---
---	Handle data import
---
-
-
--- Drop if it exists
-DROP TABLE IF EXISTS titles CASCADE;
-
--- Create table
-CREATE TABLE titles (
-	title_id 	VARCHAR(8)	PRIMARY KEY,
-	title		TEXT
+CREATE TABLE "titles" (
+    "title_id" CHAR(5)   NOT NULL,
+    "title" VARCHAR(30)   NOT NULL,
+    CONSTRAINT "pk_titles" PRIMARY KEY (
+        "title_id"
+     )
 );
 
-
---
---	Handle data import
---
-
-
--- Note that we want to create the titles table before the employees table to reference the title_id
--- Drop if it exists
-DROP TABLE IF EXISTS employees CASCADE;
-
---I am not sure if I want to require all of these to be non-null or not. I can see a use case either way.
---I do think it is unlikely that you would hire someone without knowing all of this data
--- Create table
-CREATE TABLE employees (
-	emp_no 		INT			PRIMARY KEY,
-	emp_title 	VARCHAR(8)	REFERENCES titles (title_id),
-	birth_date	DATE		NOT NULL,
-	first_name	TEXT		NOT NULL,
-	last_name	TEXT		NOT NULL,
-	sex			VARCHAR(1)	NOT NULL,
-	hire_date	DATE		NOT NULL
+CREATE TABLE "employees" (
+    "emp_no" INT   NOT NULL,
+    "emp_title" CHAR(5)   NOT NULL,
+    "birth_date" DATE   NOT NULL,
+    "first_name" VARCHAR(30)   NOT NULL,
+    "last_name" VARCHAR(30)   NOT NULL,
+    "sex" CHAR(1)   NOT NULL,
+    "hire_date" DATE   NOT NULL,
+    CONSTRAINT "pk_employees" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
-
---
---	Handle data import
---
-
-
-
-
--- Drop if it exists
-DROP TABLE IF EXISTS dept_emp CASCADE;
-
-
---note we have duplicates in both columns, so no obvious PK
--- Create table
-CREATE TABLE dept_emp (
-	emp_no 		INT			REFERENCES employees (emp_no),
-	dept_no 	VARCHAR(8) 	REFERENCES departments (dept_no)
+CREATE TABLE "dept_emp" (
+    "emp_no" INT   NOT NULL,
+    "dept_no" CHAR(4)   NOT NULL,
+    CONSTRAINT "pk_dept_emp" PRIMARY KEY (
+        "emp_no","dept_no"
+     )
 );
 
---
---	Handle data import
---
-
--- Drop if it exists
-DROP TABLE IF EXISTS dept_manager CASCADE;
-
--- Create table
-CREATE TABLE dept_manager (
-	dept_no 	VARCHAR(8) 	REFERENCES departments (dept_no),
-	emp_no 		INT 		REFERENCES employees (emp_no)
+CREATE TABLE "dept_manager" (
+    "dept_no" CHAR(4)   NOT NULL,
+    "emp_no" INT   NOT NULL,
+    CONSTRAINT "pk_dept_manager" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
---
---	Handle data import
---
-
-
-
--- salaries table just requires emplyees table
--- I am requiring that salary be non-null, an employee is officially hired with a salary, if not, it's illegal?
--- Drop if it exists
-DROP TABLE IF EXISTS salaries CASCADE;
-
--- Create table
-CREATE TABLE salaries (
-	emp_no 		INT 		PRIMARY KEY REFERENCES employees (emp_no),
-	salary		INT			NOT NULL
+CREATE TABLE "salaries" (
+    "emp_no" INT   NOT NULL,
+    "salary" INT   NOT NULL,
+    CONSTRAINT "pk_salaries" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
+ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_title" FOREIGN KEY("emp_title")
+REFERENCES "titles" ("title_id");
 
---
---	Handle data import
---
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
+
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
+
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
