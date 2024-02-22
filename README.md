@@ -29,17 +29,17 @@ There are no binaries, the main deliverables are `.sql` files. To install you ca
 
 ## Repo Overview 
 
-`/analysis/` contains the following:
+`/ERD/` contains the entity relationship diagram developed in QuickDBD that set up the schema for this module's database. 
 
--   `analyis.ipynb`
-    -   A brief exploration of the some of problems encountered when developing the schema and queries. 
+
+`/analysis/` contains `analyis.ipynb`, a brief exploration of the some of problems encountered when developing the schema and queries. 
 
 
 `/data/` contains the `.csv` files, which were imported manually to PGAdmin, which then handled the execution of the `.sql` queries. 
- 
-`/ERD/` contains the entity relationship diagram developed in QuickDBD that set up the schema for this module's database. 
+
 
 `/notes/` contains `notes.txt` which just houses the code used to generate the ERD in QDBD.
+
 
 `sql_queries` contains the following:
 
