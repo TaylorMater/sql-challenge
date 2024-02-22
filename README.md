@@ -1,40 +1,59 @@
 Riley Taylor
+
 UTA Data Analytics Bootcamp
+
 Module 9 - SQL
 
 
-# TODO: finish the TODO sections
-
-# Repo Overview (TODO)
-
-`analysis` directory contains the following:
-
--   placeholder
-    >   text text text
--   placeholder
-    >   text text text
 
 
-`data` directory contains the following:
+## Description
 
--   placeholder
-    >   text text text
--   placeholder
-    >   text text text
+This contains my submission for module 9 of the UTA Data Analytics Bootcamp. We were tasked with finding 8 slections of data for a fictional company that had not yet ported its database from `.csv` files to a true database. 
 
+I developed an ERD for the database, imported the tables, and wrote the queries, which can be found in this repo.
+
+## Requirements
+
+If you actually choose to play around with this, you need to be able to run `.sql` files and import `.csv` files into tables. I used PGAdmin4. 
+
+## Installation
+
+There are no binaries, the main deliverables are `.sql` files. To install you can:
+1.  clone the repository, 
+2.  create a new database in your PostgreSQL GUI of choice
+3.  execute the `/sql_queries/setup/table_creation.sql` file inside the database
+4.  import the `.csv` files with your PostgreSQL tool, following the order [here](/analysis/analysis.ipynb)
+5.  execute the queries you are interested in from the `/sql_queries/` directory
+
+
+## Repo Overview 
+
+`/analysis/` contains the following:
+
+-   `analyis.ipynb`
+    >   A brief exploration of the some of problems encountered when developing the schema and queries. 
+
+
+`/data/` contains the `.csv` files, which were imported manually to PGAdmin, which then handled the execution of the `.sql` queries. 
  
-`sql_queries` directory contains the following:
+`/ERD/` contains the entity relationship diagram developed in QuickDBD that set up the schema for this module's database. 
 
--   placeholder
-    >   text text text
--   placeholder
-    >   text text text
+`/notes/` contains `notes.txt` which just houses the code used to generate the ERD in QDBD.
+
+`sql_queries` contains the following:
+
+-   `/questions/`
+    >   This holds each query individually in their own file, if it is more convenient to run them this way. 
+-   `/setup/`
+    >   This contains the `.sql` files that can drop the tables, create the tables, and a legacy file that I am keeping for future reference if I want to manually build the schema. 
+    >   `collected_queries.sql` is a file that compiles all of the 8 queries into one place. You'd have to select te query you want of course, but it is included for convenience.  
 
 
 
 -----------------------------
 
-# Sources (TODO)
+## Sources 
 
 Blog — QuickDatabaseDiagrams.com
 https://www.quickdatabasediagrams.com/blog
