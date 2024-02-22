@@ -32,7 +32,7 @@ There are no binaries, the main deliverables are `.sql` files. To install you ca
 `/analysis/` contains the following:
 
 -   `analyis.ipynb`
-    >   A brief exploration of the some of problems encountered when developing the schema and queries. 
+    -   A brief exploration of the some of problems encountered when developing the schema and queries. 
 
 
 `/data/` contains the `.csv` files, which were imported manually to PGAdmin, which then handled the execution of the `.sql` queries. 
@@ -44,10 +44,10 @@ There are no binaries, the main deliverables are `.sql` files. To install you ca
 `sql_queries` contains the following:
 
 -   `/questions/`
-    >   This holds each query individually in their own file, if it is more convenient to run them this way. 
+    -   This holds each query individually in their own file, if it is more convenient to run them this way. 
 -   `/setup/`
-    >   This contains the `.sql` files that can drop the tables, create the tables, and a legacy file that I am keeping for future reference if I want to manually build the schema. 
-    >   `collected_queries.sql` is a file that compiles all of the 8 queries into one place. You'd have to select te query you want of course, but it is included for convenience.  
+    -   This contains the `.sql` files that can drop the tables, create the tables, and a legacy file that I am keeping for future reference if I want to manually build the schema. 
+    -   `collected_queries.sql` is a file that compiles all of the 8 queries into one place. You'd have to select te query you want of course, but it is included for convenience.  
 
 
 
